@@ -55,7 +55,10 @@ class Migration(migrations.Migration):
                         to=settings.AUTH_USER_MODEL,
                     ),
                 ),
-                ("tags", models.ManyToManyField(related_name="posts", to="blog.Tag")),
+                (
+                    "tags",
+                    models.ManyToManyField(related_name="posts", to="blog.Tag"),
+                ),
             ],
         ),
     ]
