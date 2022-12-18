@@ -1,7 +1,8 @@
 import logging
 
 from blog.models import Post
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from blango_auth.models import User
 from django.template import Library
 from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
@@ -13,6 +14,7 @@ logger = logging.getLogger(__name__)
 @register.filter
 def author_details(author: User, current_user: User):
     if not isinstance(author, User):
+
         return ""
     if author == current_user:
         return format_html("<strong>me</strong>")
