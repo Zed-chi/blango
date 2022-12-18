@@ -1,8 +1,9 @@
 import logging
-
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_headers
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
-
+from django.http import HttpResponse
 from .forms import CommentForm
 from .models import Post
 
@@ -14,6 +15,7 @@ def index(request):
     logger.debug("Got %d posts", len(posts))
     return render(request, "blog/index.html", {"posts": posts})
 
+    
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
