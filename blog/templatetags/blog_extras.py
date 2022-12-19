@@ -1,11 +1,12 @@
 import logging
 
-from blog.models import Post
-#from django.contrib.auth.models import User
-from blango_auth.models import User
 from django.template import Library
 from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
+
+# from django.contrib.auth.models import User
+from blango_auth.models import User
+from blog.models import Post
 
 register = Library()
 logger = logging.getLogger(__name__)

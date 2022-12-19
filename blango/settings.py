@@ -54,16 +54,14 @@ class Dev(Configuration):
         "django.contrib.messages",
         "django.contrib.sites",
         "django.contrib.staticfiles",
-        
         "blango_auth",
         "blog",
-
         "crispy_forms",
         "crispy_bootstrap5",
-        "debug_toolbar",        
+        "debug_toolbar",
         "allauth",
-        "allauth.account", 
-        "allauth.socialaccount", 
+        "allauth.account",
+        "allauth.socialaccount",
         "allauth.socialaccount.providers.google",
     ]
 
@@ -73,10 +71,10 @@ class Dev(Configuration):
         "django.middleware.security.SecurityMiddleware",
         "django.contrib.sessions.middleware.SessionMiddleware",
         "django.middleware.common.CommonMiddleware",
-        'django.middleware.csrf.CsrfViewMiddleware',
+        "django.middleware.csrf.CsrfViewMiddleware",
         "django.contrib.auth.middleware.AuthenticationMiddleware",
         "django.contrib.messages.middleware.MessageMiddleware",
-        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        "django.middleware.clickjacking.XFrameOptionsMiddleware",
         "debug_toolbar.middleware.DebugToolbarMiddleware",
     ]
 
@@ -184,7 +182,6 @@ class Dev(Configuration):
 
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     ACCOUNT_ACTIVATION_DAYS = 7
-
 
     # Plug-ins
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
