@@ -18,6 +18,10 @@
 {% endrow %}
 
 {% row "justify-content-center" %}
+    <p>
+    <a href="{% url 'google_login' %}">Log in with Google</a>
+</p>
+
     {% col "col-md-6" %}
         <form method="post" action="{% url "login" %}">
         {% csrf_token %}

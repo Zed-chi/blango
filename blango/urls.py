@@ -25,15 +25,16 @@ import blango_auth.views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/login/", blango_auth.views.login, name="login"),    
+    path('accounts/', include('django.contrib.auth.urls')),
+    #path("accounts/login/", blango_auth.views.login, name="login"),    
     path("accounts/profile/", blango_auth.views.profile, name="profile"),
     path(
         "accounts/register/",
         RegistrationView.as_view(form_class=BlangoRegistrationForm),
         name="django_registration_register",
     ),
-    path("accounts/", include("django_registration.backends.activation.urls")),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path("accounts/", include("allauth.urls")),
+    path("accounts/", include("django_registration.backends.activation.urls")),    
     path("", include("blog.urls")),
     path("ip/", blog.views.get_ip),
 ]
