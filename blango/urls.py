@@ -13,15 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import blango_auth.views
+import blog.views
 import debug_toolbar
+from blango_auth.forms import BlangoRegistrationForm
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from django_registration.backends.activation.views import RegistrationView
-
-import blango_auth.views
-import blog.views
-from blango_auth.forms import BlangoRegistrationForm
 
 urlpatterns = [
     path("api/v1/", include("blog.api.urls")),

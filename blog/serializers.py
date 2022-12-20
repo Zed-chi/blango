@@ -1,7 +1,6 @@
-from rest_framework import serializers
-
-from blog.models import Post, Tag, Comment
 from blango_auth.models import User
+from blog.models import Comment, Post, Tag
+from rest_framework import serializers
 
 
 class TagField(serializers.SlugRelatedField):
@@ -40,7 +39,6 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ["id", "creator", "content"]
-        
 
 
 class PostDetailSerializer(PostSerializer):
@@ -61,3 +59,9 @@ class PostDetailSerializer(PostSerializer):
             comment.save()
 
         return instance
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = "__all__"
