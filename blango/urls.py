@@ -24,10 +24,8 @@ import blog.views
 from blango_auth.forms import BlangoRegistrationForm
 
 urlpatterns = [
-    path("api/v1/", include("blog.api_urls")),
-
+    path("api/v1/", include("blog.api.urls")),
     path("admin/", admin.site.urls),
-    
     path("accounts/", include("django.contrib.auth.urls")),
     # path("accounts/login/", blango_auth.views.login, name="login"),
     path("accounts/profile/", blango_auth.views.profile, name="profile"),
@@ -38,7 +36,6 @@ urlpatterns = [
     ),
     path("accounts/", include("allauth.urls")),
     path("accounts/", include("django_registration.backends.activation.urls")),
-    
     path("", include("blog.urls")),
     path("ip/", blog.views.get_ip),
 ]

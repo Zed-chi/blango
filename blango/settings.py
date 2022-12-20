@@ -28,7 +28,9 @@ class Dev(Configuration):
     BASE_DIR = Path(__file__).resolve().parent.parent
 
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = "django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-"
+    SECRET_KEY = (
+        "django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-"
+    )
 
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = values.BooleanValue(True)
@@ -39,7 +41,9 @@ class Dev(Configuration):
         "ALLOW-FROM " + os.environ.get("CODIO_HOSTNAME") + "-8000.codio.io"
     )
     CSRF_COOKIE_SAMESITE = None
-    CSRF_TRUSTED_ORIGINS = [os.environ.get("CODIO_HOSTNAME") + "-8000.codio.io"]
+    CSRF_TRUSTED_ORIGINS = [
+        os.environ.get("CODIO_HOSTNAME") + "-8000.codio.io"
+    ]
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SAMESITE = "None"
@@ -111,7 +115,9 @@ class Dev(Configuration):
     """
 
     DATABASES = {
-        "default": dj_database_url.config(default=f"sqlite:///{BASE_DIR}/db.sqlite3"),
+        "default": dj_database_url.config(
+            default=f"sqlite:///{BASE_DIR}/db.sqlite3"
+        ),
         "alternative": dj_database_url.config(
             "ALTERNATIVE_DATABASE_URL",
             default=f"sqlite:///{BASE_DIR}/alternative_db.sqlite3",
