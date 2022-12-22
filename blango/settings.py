@@ -27,6 +27,9 @@ class Dev(Configuration):
 
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
     BASE_DIR = Path(__file__).resolve().parent.parent
+    MEDIA_ROOT = BASE_DIR / "media"
+    MEDIA_URL = "/media/"
+
 
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = (
@@ -72,6 +75,7 @@ class Dev(Configuration):
         "rest_framework.authtoken",
         "drf_yasg",
         "django_filters",
+        "versatileimagefield",
     ]
 
     AUTH_USER_MODEL = "blango_auth.User"
