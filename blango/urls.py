@@ -24,6 +24,7 @@ from django_registration.backends.activation.views import RegistrationView
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path("post-table/", blog.views.post_table, name="blog-post-table"),
     path("api/v1/", include("blog.api.urls")),
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
@@ -44,4 +45,6 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include(debug_toolbar.urls)),
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
