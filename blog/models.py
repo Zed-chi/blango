@@ -11,6 +11,9 @@ class Tag(models.Model):
     def __str__(self):
         return self.value
 
+    class Meta:
+        ordering = ["value"]
+
 
 class Post(models.Model):
     author = models.ForeignKey(
@@ -28,6 +31,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ["slug"]
 
 
 class Comment(models.Model):
