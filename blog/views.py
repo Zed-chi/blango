@@ -3,7 +3,7 @@ import logging
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
-
+from django.urls import reverse
 from .forms import CommentForm
 from .models import Post
 
@@ -56,5 +56,8 @@ def get_ip(request):
 
 
 def post_table(request):
-    return render(request, "blog/post-table.html")
+    return render(
+        request, "blog/post-table.html", {"post_list_url": reverse("post-list")}
+    )
+
     
