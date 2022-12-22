@@ -1,9 +1,8 @@
+from blog.models import Tag
+from django.contrib.auth import get_user_model
 from django.test import LiveServerTestCase
 from requests.auth import HTTPBasicAuth
 from rest_framework.test import RequestsClient
-
-from django.contrib.auth import get_user_model
-from blog.models import Tag
 
 
 class TagApiTestCase(LiveServerTestCase):
@@ -37,7 +36,9 @@ class TagApiTestCase(LiveServerTestCase):
             self.live_server_url + "/api/v1/token-auth/",
             {"username": "testuser@example.com", "password": "password"},
         )
-        self.client.headers["Authorization"] = "Token " + token_resp.json()["token"]
+        self.client.headers["Authorization"] = (
+            "Token " + token_resp.json()["token"]
+        )
 
         resp = self.client.post(
             self.live_server_url + "/api/v1/tags/", {"value": "tag5"}

@@ -17,7 +17,9 @@ class PostSerializer(serializers.ModelSerializer):
     )
 
     author = serializers.HyperlinkedRelatedField(
-        queryset=User.objects.all(), view_name="api_user_detail", lookup_field="email"
+        queryset=User.objects.all(),
+        view_name="api_user_detail",
+        lookup_field="email",
     )
 
     class Meta:
@@ -47,7 +49,9 @@ class PostDetailSerializer(PostSerializer):
     def update(self, instance, validated_data):
         comments = validated_data.pop("comments")
 
-        instance = super(PostDetailSerializer, self).update(instance, validated_data)
+        instance = super(PostDetailSerializer, self).update(
+            instance, validated_data
+        )
 
         for comment_data in comments:
             if comment_data.get("id"):
